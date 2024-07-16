@@ -4,6 +4,7 @@ namespace Questao1
 {
     public class ContaBancaria
     {
+        private readonly double TAXA_SAQUE = 3.5;
         public int Numero { get; private init; }
         public string Titular { get; set; }
         public double Saldo { get; private set; }
@@ -21,8 +22,7 @@ namespace Questao1
 
         public void Saque(double quantia)
         {
-            double taxa = 3.5;
-            quantia += taxa;
+            quantia += TAXA_SAQUE;
             Saldo -= quantia;
         }
         public override string ToString() => $"Conta: {Numero}, Titular: {Titular}, Saldo: {string.Format("{0:C2}", Saldo, CultureInfo.InvariantCulture)}".ToString();
